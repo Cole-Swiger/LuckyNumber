@@ -1,0 +1,72 @@
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
+
+/*
+ * I got all these test cases from https://edabit.com/challenge/4CyrhFrHGFkFvyk4b
+ * Problem came from Matt and these tests were provided by them.
+ * I have made a few slight modifications to the original tests.
+ */
+
+public class LuckyTest {
+	//private Lucky test;
+	
+	//@Before
+	//public void setUp() {
+	//   test = new Lucky();
+	   //System.out.println("Before");
+	//}
+	
+	//@After
+	//public void tearDown() {
+	//	test = null;
+		//System.out.println("After");
+	//}
+	
+	    @Test
+	  public void test1() {
+			//System.out.println("Example #1");
+			Lucky test1 = new Lucky();
+	    assertEquals(13, test1.getLuckyNumber(25, 5));
+	  }
+
+		@Test
+	  public void test2() {
+			//System.out.println("Example #2");
+			Lucky test2 = new Lucky();
+	    assertEquals(3, test2.getLuckyNumber(3, 2));
+	  }
+
+		@Test
+	  public void test3() {
+			//System.out.println("Example #3");
+			Lucky test3 = new Lucky();
+	    assertEquals(49, test3.getLuckyNumber(120, 13));
+	  }
+
+		@Test
+	  public void test4() {
+			Lucky test4 = new Lucky();
+	    assertEquals(127, test4.getLuckyNumber(350, 27));
+	  }
+
+		@Test
+	  public void test5() {
+			Lucky test5 = new Lucky();
+	    assertEquals(201, test5.getLuckyNumber(700, 40));
+	  }
+
+		@Test
+	  public void test6() {
+			Lucky test6 = new Lucky();
+	    assertEquals(303, test6.getLuckyNumber(1000, 57));
+	  }
+
+		@Test
+	  public void test7() {
+			Lucky test7 = new Lucky();
+	    assertEquals(535, test7.getLuckyNumber(5000, 90));
+	  }
+}
