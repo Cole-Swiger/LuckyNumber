@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Lucky {
+	private ArrayList<Integer> numbers;
+	private ArrayList<Integer> remove;
+	private int filter = 2;            //filter always starts at 2
+	
+	public Lucky() {
+		//initialize the lists.
+		numbers = new ArrayList<Integer>();
+		remove = new ArrayList<Integer>();
+	}
+	
+	public int getLuckyNumber(int size, int nth) {
+		//create a list and add all the numbers 1 to size in it.
+		for (int i = 1; i <= size; i++) {
+			numbers.add(i);
+		}
+		
+		boolean notDone = true;
+		//do the algorithm
+		while (notDone) {
+			//algorithm ends when filter is too large
+			if (filter > numbers.size()) {
+				notDone = false;
+			}
+			
+			else {
+			   //put all numbers to be filtered in a separate list then remove.
+		   	   //Start at -1 since index starts at 0.
+			   for (int i = -1; i < numbers.size() - 1; i += filter) {
+			       if (i < 0 || i > numbers.size()) {}   //do nothing
+				   else {
+					  remove.add(numbers.get(i));  //add number to be removed to list
+				   }
+			   }
+			   numbers.removeAll(remove);
+			   
+			   //new filter must be the next highest number in the list after filtering.
+			   int newFilter;
+			   for (int i = 1; i < numbers.size(); i++) {
+				  newFilter = numbers.get(i);
+				  if (newFilter > filter) {
+					  filter = newFilter;
+					  break;
+				  }
+		   	   }
+		    }
+		}
+		
+		
+		//index starts at 0 so subtract 1.
+		int lucky = numbers.get(nth - 1);
+		System.out.println(numbers);
+		return lucky;
+  }
+	
+  public static void main(String[] args) {
+	  Lucky luck = new Lucky();
+  }
+}
